@@ -5,5 +5,7 @@
  * @returns {object} - returns the new object
  */
 export const pick = (obj, ...fields) => {
-
+  return Object.fromEntries([...fields].map(field => {
+    return Object.entries(obj).find(entry => entry[0] === field);
+  }).filter(item => typeof item !== 'undefined'));
 };
