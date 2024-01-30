@@ -5,5 +5,13 @@
  * @returns {object} - returns the new object
  */
 export const omit = (obj, ...fields) => {
-
+  const objCopy = { ...obj };
+  
+  [...fields].forEach((field) => {
+    if (objCopy.hasOwnProperty(field)) {
+      delete objCopy[field];
+    }
+  });
+  
+  return objCopy;
 };
