@@ -5,14 +5,11 @@
  * @returns {object} - returns the new object
  */
 export const pick = (obj, ...fields) => {
-  let resultObj = {};
+  const resultObj = {};
 
   [...fields].forEach(field => {
     if (obj.hasOwnProperty(field)) {
-      resultObj = {
-        ...resultObj,
-        [field]: obj[field]
-      };
+      resultObj[field] = obj[field];
     }
   });
 
